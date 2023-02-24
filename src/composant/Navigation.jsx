@@ -1,6 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route ,Routes} from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
+import Home from "./Home";
+import ListeClients from "./ListeClients";
 
 const Navigation = () => {
     let activeStyle = {
@@ -47,6 +49,10 @@ const Navigation = () => {
           </ul>
         </div>
       </nav>
+      <Routes>
+        <Route path="/" exact element={<Home/>}/>
+        <Route path="/listeClients"  element={<ListeClients/>}/>
+      </Routes>
     </BrowserRouter>
     
   );

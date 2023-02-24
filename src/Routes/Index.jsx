@@ -5,16 +5,9 @@ import ListeClients from '../composant/ListeClients';
 import Navigation from '../composant/Navigation';
 
 const Index = () => {
+    console.log("hello")
     return (
-        <Router>
-        <Navigation>
-            <Routes>
-                <Route path="/"  exact  element={<Home/>}/>
-                <Route path="/listeClients"   element ={<ListeClients/>} />
-                <Route path="/listeCommandes" />
-            </Routes>
-        </Navigation>
-    </Router>
+       <h1>route en attente</h1>
     );
 };
 
