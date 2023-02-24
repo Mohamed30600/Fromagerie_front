@@ -27,7 +27,7 @@ const Navigation = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            <li class="nav-item active">
+            <li className="nav-item active">
             <NavLink className="nav-link"  to="/" style ={({isActive})=>
                     isActive ? activeStyle : undefined }>
                 Login 
