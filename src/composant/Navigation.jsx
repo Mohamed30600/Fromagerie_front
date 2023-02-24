@@ -47,7 +47,7 @@ const Navigation = () => {
             </li>
             
           </ul>
-        </div>
+        </div>  
       </nav>
       <Routes>
         <Route path="/" exact element={<Home/>}/>
