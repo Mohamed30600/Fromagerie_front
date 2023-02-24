@@ -1,4 +1,3 @@
-import Index from "./Routes/Index";
 import Navigation from "./composant/Navigation";
 
 function App() {
