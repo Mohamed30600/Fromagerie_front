@@ -10,7 +10,7 @@ const Index = () => {
         <Navigation>
             <Routes>
                 <Route path="/"  exact  element={<Home/>}/>
-                <Route path="/listeClients"   element ={<ListeClients/>} />
+                <Route path="/listeClients" element ={<ListeClients/>} />
                 <Route path="/listeCommandes" />
             </Routes>
         </Navigation>
