@@ -7,8 +7,8 @@ const ListeClients = () => {
 
   const afficheClient = () => {
     axios
-      .get("http://localhost:8000/listClients")
-      .then((resp) => setClient(resp.data));
+      .get("http://localhost:8000/client?page=1")
+      .then((resp) => setClient(resp.data.response));
   };
   return (
     <div>
@@ -27,8 +27,9 @@ const ListeClients = () => {
         </thead>
         <tbody>
             {client.map((valeur)=>(
-                   <tr key={valeur.codecli_id}>
-                   <th scope="row">{valeur.nomcli}</th>
+                   <tr key={valeur.codcli}>
+                   <th scope="row">{valeur.codcli}</th>
+                   <td >{valeur.nomcli}</td>
                    <td>{valeur.prenomcli}</td>
                    <td>{valeur.adresse1cli}</td>
                    <td>{valeur.villecli}</td>
