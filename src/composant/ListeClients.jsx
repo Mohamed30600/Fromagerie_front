@@ -18,6 +18,7 @@ const ListeClients = () => {
       setLiscli(true)
       );
   };
+  console.log(client);
 
   const commandeClient =(codecli) =>{
     axios
@@ -40,20 +41,20 @@ const ListeClients = () => {
   if(liscli){return (
     <div>
       
-      <button onClick={afficheClient}>liste client</button>
-      <table class="table">
+      <button type="button" class="btn btn-success btn-sm mb-2" onClick={afficheClient}>Voir la liste des clients</button>
+      <table class="table table-striped">
         <thead>
-          <tr>
-            <th scope="col">id</th>
+          <tr class="table">
+            <th scope="col">Id</th>
             <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
+            <th scope="col">Prénom</th>
             <th scope="col">Adresse</th>
             <th scope="col">Ville</th>
-            <th scope="col">CodePostale</th>
+            <th scope="col">Code postal</th>
             <th scope="col">Email</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
             {client.map((valeur)=>(
                    <tr key={valeur.codcli}>
                    <th scope="row">{valeur.codcli}</th>
@@ -64,7 +65,7 @@ const ListeClients = () => {
                    <td>{valeur.cpcli}</td>
                    <td>{valeur.emailcli}</td>
                    <td >
-                    <button onClick={()=>(commandeClient(valeur.codcli))}>commande associer</button>
+                    <button type="button" class="btn btn-outline-primary btn-sm mb-2" onClick={()=>(commandeClient(valeur.codcli))}>Commande associée</button>
                    </td>
                  </tr>
             ))}
