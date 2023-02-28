@@ -21,6 +21,7 @@ const ListeClients = () => {
       setLiscli(true)
       );
   };
+  console.log(client);
 
   const commandeClient =(codecli) =>{
     axios
@@ -64,20 +65,21 @@ const ListeClients = () => {
   //liste client
   if(liscli){return (
     <div>
-      <button onClick={afficheClient}>liste client</button>
-      <table class="table">
+      
+      <button type="button" class="btn btn-success btn-sm mb-2" onClick={afficheClient}>Voir la liste des clients</button>
+      <table className="table table-striped">
         <thead>
-          <tr>
-            <th scope="col">id</th>
+          <tr class="table">
+            <th scope="col">Id</th>
             <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
+            <th scope="col">Prénom</th>
             <th scope="col">Adresse</th>
             <th scope="col">Ville</th>
-            <th scope="col">CodePostale</th>
+            <th scope="col">Code postal</th>
             <th scope="col">Email</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody >
             {client.map((valeur)=>(
                    <tr key={valeur.codcli}>
                    <th scope="row">{valeur.codcli}</th>
@@ -88,7 +90,7 @@ const ListeClients = () => {
                    <td>{valeur.cpcli}</td>
                    <td>{valeur.emailcli}</td>
                    <td >
-                    <button onClick={()=>(commandeClient(valeur.codcli))}>commande associée</button>
+                    <button type="button" className="btn btn-outline-primary btn-sm mb-2" onClick={()=>(commandeClient(valeur.codcli))}>Commande associée</button>
                    </td>
                  </tr>
             ))}
@@ -98,8 +100,8 @@ const ListeClients = () => {
   );}
   //entete de commende concernat un client
   return(
-    <table class="table">
-    <thead>
+    <table className="table table-bordered">
+    <thead className="thead-light">
       <tr>
         <th scope="col">id</th>
         <th scope="col">date commande</th>
@@ -107,14 +109,15 @@ const ListeClients = () => {
       </tr>
     </thead>
     <tbody>
+      
         {commandeCli.map((valeur)=>(
                <tr>
                <th key={valeur.codcli_id} scope="row">{valeur.codcli_id}</th>
                <td>{valeur.datcde}</td>
                <td>{valeur.nbcolis}</td>
                <td >
-                <button className="btn btn-success" onClick={()=>(listdetailCommande(valeur.codcde))}>detaille commande</button>
-                <button  className= "btn btn-primary" onClick={()=>(AjouterCommande())}>Ajouter commande</button>
+               <button type="button" className="btn btn-outline-primary" data-mdb-ripple-color="dark">Modifier Commande</button>
+               <button type="button" className="btn btn-outline-secondary" data-mdb-ripple-color="dark">Ajouter Commande </button>
                </td>
                 {listDetailCde.map((detail)=>(
                   <li>{detail.codobj}</li>
@@ -124,6 +127,7 @@ const ListeClients = () => {
                </li>
              </tr>
         ))}
+          
     </tbody>
   </table>
   

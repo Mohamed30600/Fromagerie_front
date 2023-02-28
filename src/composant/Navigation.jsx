@@ -6,14 +6,15 @@ import ListeClients from "./ListeClients";
 
 const Navigation = () => {
     let activeStyle = {
-        background: "red",
+        background: "white",
       };
   return (
     <BrowserRouter>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <a className="navbar-brand" href="#">
          Profil Operateur colis
         </a>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -25,20 +26,10 @@ const Navigation = () => {
           >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            <li className="nav-item active">
-            <NavLink className="nav-link"  to="/" style ={({isActive})=>
-                    isActive ? activeStyle : undefined }>
-                Login 
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/register" style ={({isActive})=>
-                    isActive ? activeStyle : undefined }>
-               Register
-              </NavLink>
-            </li>
+
             <li className="nav-item">
             <NavLink className="nav-link" to="/listeClients" style ={({isActive})=>
                     isActive ? activeStyle : undefined }>
@@ -47,7 +38,7 @@ const Navigation = () => {
             </li>
             
           </ul>
-        </div>
+        </div>  
       </nav>
       <Routes>
         <Route path="/" exact element={<Home/>}/>
