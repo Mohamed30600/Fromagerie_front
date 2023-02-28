@@ -10,9 +10,9 @@ const Navigation = () => {
       };
   return (
     <BrowserRouter>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <a className="navbar-brand" href="#">
-         Profil Operateur colis
+         Profil Operateur Colis
         </a>
         <button
           className="navbar-toggler"

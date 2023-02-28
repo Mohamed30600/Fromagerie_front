@@ -73,8 +73,8 @@ const ListeClients = () => {
     </div>
   );}
   return(
-    <table class="table">
-    <thead>
+    <table class="table table-bordered">
+    <thead class="thead-light">
       <tr>
         <th scope="col">id</th>
         <th scope="col">date commande</th>
@@ -83,6 +83,7 @@ const ListeClients = () => {
       </tr>
     </thead>
     <tbody>
+      
         {commandeCli.map((valeur)=>(
                <tr>
                <th key={valeur.codcli_id} scope="row">{valeur.id}</th>
@@ -90,11 +91,12 @@ const ListeClients = () => {
                <td>{valeur.datcde}</td>
                <td>{valeur.nbcolis}</td>
                <td >
-                <button className="btn btn-success" onClick={()=>(detailCommande())}>detaille commande</button>
-                <button  className= "btn btn-primary" onClick={()=>(AjouterCommande())}>Ajouter commande</button>
+               <button type="button" class="btn btn-outline-primary" data-mdb-ripple-color="dark">Modifier Commande</button>
+               <button type="button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark">Ajouter Commande </button>
                </td>
              </tr>
         ))}
+          
     </tbody>
   </table>
   
