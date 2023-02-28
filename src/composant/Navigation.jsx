@@ -14,6 +14,7 @@ const Navigation = () => {
         <a className="navbar-brand" href="#">
          Profil : Opérateur de Colis
         </a>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -25,20 +26,10 @@ const Navigation = () => {
           >
           <span className="navbar-toggler-icon"></span>
         </button>
+
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
-            <li className="nav-item active">
-            <NavLink className="nav-link"  to="/" style ={({isActive})=>
-                    isActive ? activeStyle : undefined }>
-                Login 
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/register" style ={({isActive})=>
-                    isActive ? activeStyle : undefined }>
-               Register
-              </NavLink>
-            </li>
+
             <li className="nav-item">
             <NavLink className="nav-link" to="/listeClients" style ={({isActive})=>
                     isActive ? activeStyle : undefined }>
