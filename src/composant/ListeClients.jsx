@@ -7,14 +7,13 @@ const ListeClients = () => {
   const [client, setClient] = useState([]);
   const [liscli, setLiscli] = useState(true);
   const [commandeCli, setCommandeCli] = useState([]);
-  const [listDetailCde, setlistDetailCde] = useState([]);
   const [datecde, setDatecde] = useState("2023-11-16");
   const [timbrecli, setTimbrecli] = useState(0);
   const [timbrecde, setTimbrecde] = useState(0);
   const [nbcolis, setnbcolis] = useState(0);
   const [cheqcli, setcheqcli] = useState(0);
   const [idcondit, setidcondit] = useState(26);
-  const [cdecomt, setCdecomt] = useState(0git );
+  const [cdecomt, setCdecomt] = useState(0);
   const [barchive, setBarchive] = useState(0);
   const [bstock, setBstock] = useState(false);
   const [formCommande, setformCommande] = useState(false);
@@ -29,47 +28,40 @@ const ListeClients = () => {
 
   let navigate = useNavigate("");
 
-  let commande = {
-    datecde,
-    codecli_id,
-    timbrecli,
-    timbrecde,
-    nbcolis,
-    cheqcli,
-    idcondit,
-    cdecomt,
-    barchive,
-    bstock,
-    id_dtl_commande_id,
-  };
+  //Objet commande actuel
+  let commande = {datecde,codecli_id,timbrecli,timbrecde,nbcolis,cheqcli,idcondit,cdecomt,barchive,bstock,id_dtl_commande_id};
+  //Objet detail commande actuel
   let detailCommande = { codcde, codobj_id, qte, colis, commentaire };
 
+  //Fonction qui récupère la liste des clients
   const afficheClient = () => {
     axios
       .get("http://localhost:8000/client?page=3")
       .then((resp) => setClient(resp.data.response), setLiscli(true));
   };
 
+  //Fonction qui récupère la liste des commandes d'un client
   const commandeClient = (codecli) => {
     axios
       .get("http://localhost:8000/commande/client/" + codecli)
       .then((resp) => setCommandeCli(resp.data.response), setLiscli(false));
   };
 
+  //Fonction qui supprime une commande d'un client
   const deleteCommande = (idDtlCommande) => {
     axios
       .delete("http://localhost:8000/commande/detail/" + idDtlCommande)
       .then((resp) => console.log(resp));
   };
 
-  const AjouterCommande = (commande,e) => {
-    e.preventDefault(false)
+  //Fonction qui ajoute une commande à un client
+  const AjouterCommande = (commande) => {
     axios
       .post("http://localhost:8000/commande", commande)
-      .then((resp) => console.log("hello"));
+      .then((resp) => console.log("commande ajoutée"));
   };
 
-console.log("commande",commande)
+  //Fonction qui ajoute un produit à une commande
   const ajouterProduit = (detailCommande) => {
     axios
       .post("http://localhost:8000/commande/detail", detailCommande)
@@ -79,7 +71,7 @@ console.log("commande",commande)
       });
   };
 
-  //liste client
+  //Affichage de la liste des clients
   if (liscli) {
     return (
       <div>
@@ -131,7 +123,8 @@ console.log("commande",commande)
       </div>
     );
   }
-  //formulaire ajouter commande
+
+  //Formulaire pour ajouter une commande
   if (formCommande) {
     return (
       <form>
@@ -189,6 +182,7 @@ console.log("commande",commande)
       </form>
     );
   }
+  //Formulaire pour ajouter un produit à une commande
   if (formProduit) {
     return (
       <form>
@@ -231,16 +225,16 @@ console.log("commande",commande)
     );
   }
 
-  //entete de commende concernat un client
+  //Affichage de la liste des commandes d'un client
   return (
     <>
       <button onClick={() => setformCommande(true)}>ajouter Commande</button>
       <table className="table table-bordered">
         <thead className="thead-light">
           <tr>
-            <th scope="col">#idClient</th>
-            <th scope="col">#idCommande</th>
-            <th scope="col">date commande</th>
+            <th scope="col"># Client</th>
+            <th scope="col"># Commande</th>
+            <th scope="col">Date commande</th>
           </tr>
         </thead>
         <tbody>
@@ -262,7 +256,7 @@ console.log("commande",commande)
                     Ajouter produit
                   </button>
                 </td>
-                <td>suprimer commannde</td>
+                <td>Supprimer commande</td>
               </tr>
               <tr>
                 <table className="table">
@@ -278,7 +272,7 @@ console.log("commande",commande)
                         <td>{detailCommand.qte}</td>
                         <td>{detailCommand.id_dtl_commande}</td>
                         <td>
-                          <button>supression</button>
+                          <button>Supprimer</button>
                         </td>
                       </tr>
                     ))}
