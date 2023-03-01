@@ -42,9 +42,9 @@ const ListeClients = () => {
     <div>
       
       <button type="button" class="btn btn-success btn-sm mb-2" onClick={afficheClient}>Voir la liste des clients</button>
-      <table class="table table-striped">
+      <table className="table table-striped">
         <thead>
-          <tr class="table">
+          <tr className="table">
             <th scope="col">Id</th>
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
@@ -74,8 +74,8 @@ const ListeClients = () => {
     </div>
   );}
   return(
-    <table class="table table-bordered">
-    <thead class="thead-light">
+    <table className="table table-bordered">
+    <thead className="thead-light">
       <tr>
         <th scope="col">id</th>
         <th scope="col">date commande</th>
