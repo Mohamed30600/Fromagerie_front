@@ -14,7 +14,7 @@ const ListeClients = () => {
   const [nbcolis, setnbcolis] = useState(0);
   const [cheqcli, setcheqcli] = useState(0);
   const [idcondit, setidcondit] = useState(26);
-  const [cdecomt, setCdecomt] = useState(0);
+  const [cdecomt, setCdecomt] = useState(0git );
   const [barchive, setBarchive] = useState(0);
   const [bstock, setBstock] = useState(false);
   const [formCommande, setformCommande] = useState(false);
