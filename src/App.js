@@ -4,6 +4,7 @@ function App() {
   return (
     <div className="App">
     <Navigation/>
+    <h1>Application fromagerie</h1>
     </div>
   );
 }
