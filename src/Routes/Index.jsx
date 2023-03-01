@@ -7,7 +7,6 @@ import Navigation from '../composant/Navigation';
 const Index = () => {
     console.log("hello")
     return (
-<<<<<<< HEAD
         <Router>
         <Navigation>
             <Routes>
@@ -17,9 +16,7 @@ const Index = () => {
             </Routes>
         </Navigation>
     </Router>
-=======
-       <h1>route en attente</h1>
->>>>>>> a1e79d403435afde6b149d46075a707a5353166c
+      
     );
 };
 
